@@ -13,12 +13,17 @@ public class Calculator {
         double b = Double.parseDouble(expr[2]);
         String op2 = expr[3];
         double c = Double.parseDouble(expr[4]);
+        String op3 = expr[5];
+        double d = Double.parseDouble(expr[6]);
+        String op4 = expr[7];
+        double e = Double.parseDouble(expr[8]);
         double result = 0;
 
-            switch (op1) {
+        if (expr.length <= 3) {
+                switch (op1) {
                     case "+":
-                        switch(op2) {
-                            case"+":
+                        switch (op2) {
+                            case "+":
                                 result = a + b + c;
                                 break;
                             case "-":
@@ -31,13 +36,13 @@ public class Calculator {
                                 result = a + (b / c);
                                 break;
                         }
-                break;
-                case"-":
-                        switch(op2){
+                        break;
+                    case "-":
+                        switch (op2) {
                             case "-":
                                 result = a - b - c;
                                 break;
-                            case"+":
+                            case "+":
                                 result = a - b + c;
                                 break;
                             case "*":
@@ -48,8 +53,8 @@ public class Calculator {
                                 break;
                         }
                         break;
-                case"*":
-                        switch(op2){
+                    case "*":
+                        switch (op2) {
                             case "*":
                                 result = a * b * c;
                                 break;
@@ -59,13 +64,13 @@ public class Calculator {
                             case "-":
                                 result = a * b - c;
                                 break;
-                            case"+":
+                            case "+":
                                 result = a * b + c;
                                 break;
-                    }
-                    break;
-                case"/":
-                        switch(op2){
+                        }
+                        break;
+                    case "/":
+                        switch (op2) {
                             case "/":
                                 result = a / b / c;
                                 break;
@@ -75,15 +80,86 @@ public class Calculator {
                             case "-":
                                 result = a / b - c;
                                 break;
-                            case"+":
+                            case "+":
                                 result = a / b + c;
                                 break;
+                        }
+                        break;
+                    default:
+                        return "error";
+                }
+        }
+        else if (expr.length <= 5){
+            switch (op3) {
+                case "+":
+                    switch (op4) {
+                        case "+":
+                            result = a + b + c + d + e;
+                            break;
+                        case "-":
+                            result = a + b - c + d - e ;
+                            break;
+                        case "*":
+                            result = a + (b * c) + (d * e) ;
+                            break;
+                        case "/":
+                            result = a + (b / c) + (d / e);
+                            break;
+                    }
+                    break;
+                case "-":
+                    switch (op4) {
+                        case "-":
+                            result = a - b - c - d - e;
+                            break;
+                        case "+":
+                            result = a - b + c - d + e;
+                            break;
+                        case "*":
+                            result = a - (b * c) - (d * e);
+                            break;
+                        case "/":
+                            result = a - (b / c) - (d / e);
+                            break;
+                    }
+                    break;
+                case "*":
+                    switch (op4) {
+                        case "*":
+                            result = a * b * c * d * e;
+                            break;
+                        case "/":
+                            result = a * b / c * d / e;
+                            break;
+                        case "-":
+                            result = a * b - c * (d - e);
+                            break;
+                        case "+":
+                            result = a * b + c * d + e;
+                            break;
+                    }
+                    break;
+                case "/":
+                    switch (op4) {
+                        case "/":
+                            result = a / b / c / d / e;
+                            break;
+                        case "*":
+                            result = a / b * c / d * e;
+                            break;
+                        case "-":
+                            result = a / b - c / d - e;
+                            break;
+                        case "+":
+                            result = a / b + c / d + e;
+                            break;
                     }
                     break;
                 default:
                     return "error";
             }
-            return String.valueOf(result);
         }
+            return String.valueOf(result);
+    }
 }
 
