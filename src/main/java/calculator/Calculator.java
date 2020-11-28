@@ -9,39 +9,20 @@ public class Calculator {
 
     public String calculate(String[] expr) {
         double a = Double.parseDouble(expr[0]);
-        String op = expr[1];
+        String op1 = expr[1];
         double b = Double.parseDouble(expr[2]);
-        String op1 = expr[3];
-        double c = Double.parseDouble(expr[4]);
         String op2 = expr[3];
+        double c = Double.parseDouble(expr[4]);
         double result = 0;
-        double x = 0;
 
-        switch (op) {
-            case "+":
-                x = a + b;
-                break;
-            case "-":
-                x = a - b;
-                break;
-            case "*":
-                x = a * b;
-                break;
-            case "/":
-                x = a / b;
-                break;
-
-            default:
-                return "error";
-        }
             switch (op1) {
                     case "+":
                         switch(op2) {
                             case"+":
-                                result = x + c;
+                                result = a + b + c;
                                 break;
                             case "-":
-                                result = x - c;
+                                result = a + b - c;
                                 break;
                             case "*":
                                 result = a + (b * c);
@@ -54,10 +35,10 @@ public class Calculator {
                 case"-":
                         switch(op2){
                             case "-":
-                                result = x - c;
+                                result = a - b - c;
                                 break;
                             case"+":
-                                result = x + c;
+                                result = a - b + c;
                                 break;
                             case "*":
                                 result = a - (b * c);
@@ -70,32 +51,32 @@ public class Calculator {
                 case"*":
                         switch(op2){
                             case "*":
-                                result = x * c;
+                                result = a * b * c;
                                 break;
                             case "/":
-                                result = x / c;
+                                result = a * b / c;
                                 break;
                             case "-":
-                                result = x - c;
+                                result = a * b - c;
                                 break;
                             case"+":
-                                result = x + c;
+                                result = a * b + c;
                                 break;
                     }
                     break;
                 case"/":
                         switch(op2){
                             case "/":
-                                result = x / c;
+                                result = a / b / c;
                                 break;
                             case "*":
-                                result = x * c;
+                                result = a / b * c;
                                 break;
                             case "-":
-                                result = x - c;
+                                result = a / b - c;
                                 break;
                             case"+":
-                                result = x + c;
+                                result = a / b + c;
                                 break;
                     }
                     break;
