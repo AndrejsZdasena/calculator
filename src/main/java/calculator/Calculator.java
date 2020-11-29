@@ -8,28 +8,30 @@ package calculator;
 public class Calculator {
 
     public String calculate(String[] expr) {
-        double a = Double.parseDouble(expr[0]);
-        String op1 = expr[1];
-        double b = Double.parseDouble(expr[2]);
-        //String op2 = expr[3];
-        //double c = Double.parseDouble(expr[4]);
+        Integer a = Integer.parseInt(expr[0]);
+        String  op1 = expr[1];
+        Integer b = Integer.parseInt(expr[2]);
+        //String op1 = expr[3];
+        Integer c = Integer.parseInt(expr[4]);
         //String op3 = expr[5];
-        //double d = Double.parseDouble(expr[6]);
+         //double d = Double.parseDouble(expr[6]);
         //String op4 = expr[7];
         //double e = Double.parseDouble(expr[8]);
         double result = 0;
 
-        if (expr.length >= 3) {
+        if (expr.length <= 2) {
             op1 = op1 + expr[1];
-
+        } else if (expr.length <=3){
+            op1 = op1 + expr[3];
+        }
             switch (op1) {
-                case "+":
-                    result = Integer.parseInt(expr[0] + Integer.parseInt(expr[2]));
-                    break;
-                    /*case "-":
-                        result = a + b - c;
+                    case "+":
+                        result = a + b;
                         break;
-                    case "*":
+                    case "++":
+                        result = a + b + c;
+                        break;
+                    /*case "*":
                         result = a + (b * c);
                         break;
                     case "/":
@@ -39,9 +41,7 @@ public class Calculator {
                     return "error";
             }
 
-        } else if (expr.length <= 5) {
-            op1 = op1 + expr[3];
-        }
+
         /*switch (op1) {
             case "+":
                 result = Integer.parseInt(expr[0] + Integer.parseInt(expr[2]));
